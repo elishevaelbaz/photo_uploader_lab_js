@@ -42,6 +42,13 @@ newPicForm.addEventListener("submit", function(e){
     .then(renderOnePhoto)
 })
 
+// update - will do event delegation way
+photoContainer.addEventListener("click", function(e){
+    if (e.target.matches(".updateButton")){
+        console.log(e.target)
+    }
+})
+
 function deletePhoto(photoObj){
       
         fetch(`http://localhost:3000/photos/${photoObj.id}`, {
@@ -58,7 +65,8 @@ function renderOnePhoto(photoObj){
     photoDiv.innerHTML += `<h3>${photoObj.name}</h3>
     <p>By ${photoObj.owner}</p>
     <img src="${photoObj.photo_image_url}">
-    <button class="removeButton" data-id="${photoObj.id}">Remove</button>`
+    <button class="removeButton" data-id="${photoObj.id}">Remove</button>
+    <button class="updateButton" >Update</button>`
 
     photoContainer.append(photoDiv)
     const removeButton = photoDiv.querySelector(".removeButton")
