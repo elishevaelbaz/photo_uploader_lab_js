@@ -46,6 +46,8 @@ newPicForm.addEventListener("submit", function(e){
 photoContainer.addEventListener("click", function(e){
     if (e.target.matches(".updateButton")){
         console.log(e.target)
+
+        // show edit form and patch
     }
 })
 
